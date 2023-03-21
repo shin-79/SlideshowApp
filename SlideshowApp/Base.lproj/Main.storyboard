@@ -20,20 +20,33 @@
                                 <rect key="frame" x="166" y="417" width="59" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="再生"/>
+                                <connections>
+                                    <action selector="slidebutton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k1G-MU-k3Y"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goe-8L-86G">
                                 <rect key="frame" x="249" y="417" width="59" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="進む"/>
+                                <connections>
+                                    <action selector="procedBUtton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dTJ-5q-rbm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emX-6W-mz6">
                                 <rect key="frame" x="83" y="417" width="59" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="戻る"/>
+                                <connections>
+                                    <action selector="backBUtton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GrH-Ec-rCF"/>
+                                </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1aw-Tw-Sqh">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dog1" translatesAutoresizingMaskIntoConstraints="NO" id="1aw-Tw-Sqh">
                                 <rect key="frame" x="50" y="125" width="291" height="192"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="RCe-Xl-ciY" appends="YES" id="WFZ-Ce-LsW"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -49,16 +62,62 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="1aw-Tw-Sqh" id="TaX-GI-2ls"/>
+                        <outlet property="backButton" destination="emX-6W-mz6" id="CDq-nj-83O"/>
+                        <outlet property="backButton2" destination="emX-6W-mz6" id="BYt-ya-NSj"/>
+                        <outlet property="button1" destination="goe-8L-86G" id="gtu-IF-3D3"/>
+                        <outlet property="imageView" destination="1aw-Tw-Sqh" id="xFS-oH-cCH"/>
+                        <outlet property="procedBUtton" destination="goe-8L-86G" id="fQ2-Mq-HcK"/>
                         <outlet property="startButton" destination="9Mu-v7-Pjk" id="6qB-XU-vfg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="RCe-Xl-ciY">
+                    <connections>
+                        <action selector="imageViewTapped:" destination="BYZ-38-t0r" id="RlF-iy-Wpj"/>
+                        <segue destination="1Pm-HY-mOM" kind="show" id="lHV-GK-iBh"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="130.76923076923077" y="-28.436018957345969"/>
+            <point key="canvasLocation" x="-34" y="-28"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="bfM-Si-sKb">
+            <objects>
+                <viewController id="1Pm-HY-mOM" customClass="ResultViewController" customModule="SlideshowApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cx3-ak-50c">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eff-hc-XCb">
+                                <rect key="frame" x="166" y="445" width="59" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="戻る"/>
+                                <connections>
+                                    <segue destination="hKc-ne-hIH" kind="unwind" unwindAction="unwind:" id="UGk-Jv-52v"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rff-dk-lGx">
+                                <rect key="frame" x="12" y="74" width="367" height="285"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sbw-wW-JL6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0ny-Fv-kVi"/>
+                    <connections>
+                        <outlet property="imageView" destination="rff-dk-lGx" id="OC3-sD-fKs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q67-PD-b4N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="hKc-ne-hIH" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="860" y="-28.436018957345969"/>
         </scene>
     </scenes>
     <resources>
+        <image name="dog1" width="800" height="500"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
